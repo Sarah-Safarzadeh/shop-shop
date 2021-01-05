@@ -1,3 +1,6 @@
+// import reducer funtion
+import { reducer } from '../utils/reducers';
+
 // import our actions
 import {
     UPDATE_PRODUCTS,
@@ -20,4 +23,15 @@ test('UPDATE_PRODUCTS', () => {
 
     expect(newState.products.length).toBe(2);
     expect(initialState.products.length).toBe(0);
+});
+
+// update categories test
+test('UPDATE_CATEGORIES', () => {
+    let newState = reducer(initialState, {
+        type: UPDATE_CATEGORIES,
+        categories: [{}, {}]
+    });
+
+    expect(newstate.categories.length).toBe(2);
+    expect(initialState.categories.length).toBe(0);
 });
