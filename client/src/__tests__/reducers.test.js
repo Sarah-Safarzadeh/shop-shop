@@ -32,6 +32,6 @@ test('UPDATE_CATEGORIES', () => {
         categories: [{}, {}]
     });
 
-    expect(newstate.categories.length).toBe(2);
-    expect(initialState.categories.length).toBe(0);
+    expect(newState.categories.length).toBe(2);
+    expect(initialState.categories.length).toBe(1);
 });
