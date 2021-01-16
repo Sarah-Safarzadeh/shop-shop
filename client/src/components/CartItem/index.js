@@ -5,7 +5,6 @@ import { useStoreContext } from "../../utils/GlobalState";
 import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 
 const CartItem = ({ item }) => {
-
   // global state
   const [, dispatch] = useStoreContext();
 
@@ -29,7 +28,11 @@ const CartItem = ({ item }) => {
         <div>
           <span>Qty:</span>
           <input type="number" placeholder="1" value={item.purchaseQuantity} />
-          <span role="img" aria-label="trash">
+          <span
+            role="img"
+            aria-label="trash"
+            onClick={() => removeFromCart(item)}
+          >
             🗑️
           </span>
         </div>
