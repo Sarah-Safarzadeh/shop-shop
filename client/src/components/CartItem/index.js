@@ -16,6 +16,24 @@ const CartItem = ({ item }) => {
     });
   };
 
+  // function to edit the quantity of shopping cart items
+  const onChange = (e) => {
+    const value = e.target.value;
+
+    if (value === "0") {
+      dispatch({
+        type: REMOVE_FROM_CART,
+        _id: item._id,
+      });
+    } else {
+      dispatch({
+        type: UPDATE_CART_QUANTITY,
+        _id: item._id,
+        purchaseQuantity: parseInt(value),
+      });
+    }
+  };
+
   return (
     <div className="flex-row">
       <div>
@@ -27,7 +45,12 @@ const CartItem = ({ item }) => {
         </div>
         <div>
           <span>Qty:</span>
-          <input type="number" placeholder="1" value={item.purchaseQuantity} />
+          <input
+            type="number"
+            placeholder="1"
+            value={item.purchaseQuantity}
+            onChange={onChange}
+          />
           <span
             role="img"
             aria-label="trash"
